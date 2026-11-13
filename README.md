@@ -1,20 +1,22 @@
-# Ponte São João Odontologia
+# Ponte São João Odontologia Estética
 
-Site institucional com páginas específicas para Clínica Geral e Urgência Odontológica, desenvolvido em português do Brasil e preparado para campanhas separadas.
+Site único da clínica, reconstruído a partir das duas referências públicas enviadas: a landing page de implantes, próteses e cirurgias como base visual e de conversão, e o site institucional como base de conteúdo e abrangência.
 
-## Rotas
+## Rotas de anúncio e navegação
 
-- `/` — apresentação da clínica
-- `/clinica-geral` — landing page de clínica geral
-- `/urgencia-odontologica` — landing page de urgência odontológica
-- `/sitemap.xml` — sitemap público
-- `/robots.txt` — regras para rastreadores
-- `/manus-routes.json` — manifesto de rotas do projeto
+- `/` — home completa e institucional
+- `/implantes-proteses-cirurgias` — landing para reabilitação oral, implantes, próteses e cirurgias
+- `/clinica-geral` — landing para avaliação e prevenção
+- `/urgencia-odontologica` — landing para intercorrências e urgência
+- `/tratamentos` — mapa de áreas e serviços
+- `/profissionais` — equipe e formações publicadas
+- `/duvidas` — perguntas frequentes
+- `/sitemap.xml`, `/robots.txt` e `/manus-routes.json` — SEO e rastreamento
+
+O site usa imagens públicas da landing page de referência para preservar sua identidade visual editorial e premium. Todos os CTAs levam ao WhatsApp oficial da clínica com mensagens específicas por intenção.
 
 ## Desenvolvimento
 
 ```bash
 npm run dev
 ```
-
-O servidor usa a porta `3000` por padrão e aceita `PORT` em produção.

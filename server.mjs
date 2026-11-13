@@ -7,234 +7,64 @@ const root = fileURLToPath(new URL(".", import.meta.url));
 const publicDir = join(root, "public");
 const port = Number(process.env.PORT || 3000);
 const siteOrigin = "https://www.pontesaojoaoodontologia.com.br";
-const whatsappNumber = "5511963181163";
-const phoneDisplay = "(11) 96318-1163";
+const whatsapp = "5511963181163";
+const phone = "(11) 96318-1163";
 const address = "Av. São João, 627 — Ponte São João, Jundiaí — SP";
+const mapsUrl = "https://www.google.com/maps/place/Ponte+S%C3%A3o+Jo%C3%A3o+Odontologia+Est%C3%A9tica/data=!4m2!3m1!1s0x94cf271d1c2db9ed:0xdd4966d9c3783f72?hl=pt-BR&gl=br";
 
 const pages = {
-  "/": {
-    key: "home",
-    title: "Ponte São João Odontologia | Jundiaí",
-    description: "Odontologia humanizada em Jundiaí para cuidar, prevenir e recuperar seu sorriso. Atendimento particular na Ponte São João.",
-    eyebrow: "Cuidado próximo, tecnologia e experiência",
-    heading: "Seu sorriso merece um cuidado que olha para você por inteiro.",
-    intro: "Na Ponte São João Odontologia, cada atendimento começa com escuta, avaliação cuidadosa e um plano claro para a sua saúde bucal.",
-    primaryCta: "Falar com a clínica",
-    heroNote: "Atendimento particular · Jundiaí e região",
-    heroVisual: "home",
-    sections: [
-      {
-        id: "cuidado",
-        kicker: "Uma clínica para acompanhar você",
-        heading: "Odontologia completa com jeito humano de cuidar.",
-        body: "Reunimos prevenção, diagnóstico e tratamentos odontológicos em um ambiente acolhedor. A tecnologia entra para apoiar decisões mais precisas — e o cuidado aparece em cada conversa.",
-        cards: [
-          ["01", "Escuta antes de tudo", "Entendemos sua queixa, sua rotina e o que você espera do tratamento."],
-          ["02", "Plano sem complicação", "Explicamos possibilidades e próximos passos com clareza."],
-          ["03", "Acompanhamento próximo", "Você sabe o que está acontecendo em cada etapa do cuidado."]
-        ]
-      },
-      {
-        id: "servicos",
-        kicker: "Como podemos ajudar",
-        heading: "Da prevenção ao cuidado que não pode esperar.",
-        body: "Escolha o atendimento que mais se aproxima do que você precisa agora. Se ainda não souber, nossa equipe orienta você.",
-        serviceLinks: [
-          ["Clínica Geral", "Avaliação, prevenção, limpeza, restaurações e diagnóstico para manter a saúde bucal em dia.", "/clinica-geral", "Conhecer clínica geral"],
-          ["Urgência Odontológica", "Orientação e avaliação para dor, trauma, dente quebrado, sangramento e outras intercorrências.", "/urgencia-odontologica", "Preciso de atendimento"]
-        ]
-      }
-    ]
-  },
-  "/clinica-geral": {
-    key: "general",
-    title: "Clínica Geral em Jundiaí | Ponte São João Odontologia",
-    description: "Avaliação odontológica, prevenção, limpeza e restaurações em Jundiaí. Agende seu atendimento particular na Ponte São João.",
-    eyebrow: "Clínica Geral em Jundiaí",
-    heading: "Cuidar da saúde bucal começa com uma boa avaliação.",
-    intro: "Na clínica geral, você encontra o cuidado essencial para prevenir problemas, tratar o que já apareceu e acompanhar seu sorriso com mais tranquilidade.",
-    primaryCta: "Agendar avaliação",
-    heroNote: "Avaliação individual · Atendimento particular",
-    heroVisual: "general",
-    sections: [
-      {
-        id: "o-que-inclui",
-        kicker: "Um ponto de partida seguro",
-        heading: "Um atendimento pensado para entender o que você precisa.",
-        body: "A consulta de clínica geral é o momento de olhar para a saúde da boca como um todo. A partir da avaliação, a equipe explica os achados e orienta os próximos passos, incluindo encaminhamentos quando necessário.",
-        checkList: [
-          "Avaliação clínica e conversa sobre sua saúde bucal",
-          "Orientação de prevenção e higiene personalizada",
-          "Limpeza e remoção de placa e tártaro quando indicada",
-          "Avaliação de cáries, restaurações e sensibilidade",
-          "Planejamento de tratamento ou encaminhamento especializado"
-        ]
-      },
-      {
-        id: "para-quem",
-        kicker: "Para diferentes momentos",
-        heading: "Quando marcar uma avaliação de clínica geral?",
-        body: "Mesmo sem dor, consultas de acompanhamento ajudam a identificar alterações cedo. Também é um bom caminho para quem percebe sensibilidade, sangramento ao escovar, manchas, mau hálito persistente ou quer retomar o cuidado depois de um tempo.",
-        callout: "Não sabe qual atendimento escolher? Conte o que está acontecendo pelo WhatsApp. A equipe orienta o melhor primeiro passo."
-      }
-    ]
-  },
-  "/urgencia-odontologica": {
-    key: "emergency",
-    title: "Urgência Odontológica em Jundiaí | Ponte São João",
-    description: "Atendimento odontológico para situações de urgência em Jundiaí. Fale com a Ponte São João para confirmar disponibilidade e orientação.",
-    eyebrow: "Urgência Odontológica em Jundiaí",
-    heading: "Quando algo acontece, você precisa de orientação clara e um próximo passo.",
-    intro: "Dor forte, trauma, dente quebrado ou sangramento merecem atenção. Fale com a Ponte São João para explicar o que aconteceu e confirmar a possibilidade de atendimento.",
-    primaryCta: "Falar sobre uma urgência",
-    heroNote: "Atendimento particular · Confirme a disponibilidade",
-    heroVisual: "emergency",
-    sections: [
-      {
-        id: "situacoes",
-        kicker: "Podemos orientar você",
-        heading: "Algumas situações que pedem contato rápido.",
-        body: "Cada caso precisa ser avaliado individualmente. Ao chamar no WhatsApp, descreva os sintomas, quando começaram e se houve trauma. A equipe poderá orientar o próximo passo e informar a disponibilidade do atendimento.",
-        urgencyCards: [
-          ["Dor de dente", "Dor intensa, latejante ou que piorou de repente."],
-          ["Dente quebrado", "Fratura, perda de parte do dente ou restauração que caiu."],
-          ["Trauma", "Batida na boca, queda ou impacto durante esporte."],
-          ["Sangramento", "Sangramento persistente após um trauma ou procedimento."],
-          ["Inchaço", "Edema, sensibilidade ou dificuldade para abrir a boca."],
-          ["Outras intercorrências", "Algo mudou e você não sabe se deve esperar? Converse com a equipe."]
-        ]
-      },
-      {
-        id: "como-agir",
-        kicker: "Antes de chegar",
-        heading: "O que fazer enquanto busca orientação.",
-        body: "Mantenha a calma e evite improvisar medicamentos ou colocar substâncias diretamente no local. Em caso de trauma, não descarte fragmentos ou o dente sem antes receber orientação. Se houver sinais de gravidade, como dificuldade para respirar, perda de consciência ou sangramento que não cessa, procure um serviço de emergência médica imediatamente.",
-        callout: "A Ponte São João atende de forma particular. Envie uma mensagem antes de se deslocar para confirmar horários e disponibilidade."
-      }
-    ]
-  }
+  "/": { key: "home", title: "Ponte São João Odontologia Estética | Jundiaí", description: "Implantes, próteses, cirurgias, clínica geral e urgência odontológica em Jundiaí. Atendimento particular na Ponte São João.", eyebrow: "Ponte São João · Jundiaí", heading: "Um cuidado completo para devolver conforto, saúde e confiança ao seu sorriso.", intro: "Implantes, próteses, cirurgias, clínica geral e urgência odontológica em um só lugar — com avaliação individual e orientação profissional.", image: "/assets/clinica-36.jpg", note: "Atendimento particular · Não atendemos convênios", cta: "Agendar avaliação" },
+  "/implantes-proteses-cirurgias": { key: "rehab", title: "Implantes, Próteses e Cirurgias em Jundiaí | Ponte São João", description: "Implantes dentários, próteses e cirurgias em Jundiaí. Entenda as possibilidades para reabilitar seu sorriso e agende uma avaliação.", eyebrow: "Implantes, próteses e cirurgias", heading: "Quando falta um dente, a conversa pode começar por aqui.", intro: "Se a prótese incomoda, mastigar ficou difícil ou você quer entender as opções para repor dentes, a equipe da Ponte São João pode ouvir o seu caso e orientar uma avaliação.", image: "/assets/implantes.jpg", note: "Cuidado com avaliação individual", cta: "Agendar avaliação" },
+  "/clinica-geral": { key: "general", title: "Clínica Geral em Jundiaí | Ponte São João Odontologia", description: "Avaliação, prevenção, limpeza, restaurações e diagnóstico odontológico em Jundiaí. Atendimento particular na Ponte São João.", eyebrow: "Clínica Geral em Jundiaí", heading: "Cuidar da saúde bucal começa com uma boa avaliação.", intro: "Um atendimento para entender o que você precisa, prevenir problemas e acompanhar sua saúde bucal com mais tranquilidade.", image: "/assets/reabilitacao.jpg", note: "Avaliação individual · Atendimento particular", cta: "Agendar avaliação" },
+  "/urgencia-odontologica": { key: "emergency", title: "Urgência Odontológica em Jundiaí | Ponte São João", description: "Urgência odontológica em Jundiaí para dor, trauma, dente quebrado, sangramento e outras intercorrências. Confirme a disponibilidade pelo WhatsApp.", eyebrow: "Urgência Odontológica em Jundiaí", heading: "Quando algo acontece, você precisa de orientação clara e um próximo passo.", intro: "Dor forte, trauma, dente quebrado ou sangramento merecem atenção. Fale com a equipe para explicar o que aconteceu e confirmar a disponibilidade.", image: "/assets/cirurgia.webp", note: "Atendimento particular · Confirme a disponibilidade", cta: "Falar sobre uma urgência" },
+  "/tratamentos": { key: "treatments", title: "Tratamentos Odontológicos em Jundiaí | Ponte São João", description: "Conheça as áreas de atendimento da Ponte São João Odontologia: estética, ortodontia, periodontia, endodontia, próteses, implantes e mais.", eyebrow: "Uma clínica, diferentes áreas", heading: "Odontologia em diferentes fases da vida.", intro: "Conheça as principais frentes de atendimento da Ponte São João e converse com a equipe para entender qual caminho faz sentido para você.", image: "/assets/clinica-34.jpg", note: "A disponibilidade deve ser confirmada com a equipe", cta: "Conversar com a clínica" },
+  "/profissionais": { key: "team", title: "Profissionais | Ponte São João Odontologia Estética", description: "Conheça os profissionais da Ponte São João Odontologia Estética em Jundiaí e suas áreas de atuação.", eyebrow: "Profissionais da clínica", heading: "Experiência em diferentes áreas do cuidado.", intro: "Uma equipe com atuações complementares para acompanhar cada paciente com escuta, orientação e atenção individual.", image: "/assets/clinica-35.jpg", note: "Responsável técnica: Dra. Regina de Almeida Fernandes · CRO-SP 57949", cta: "Agendar avaliação" },
+  "/duvidas": { key: "faq", title: "Dúvidas Frequentes | Ponte São João Odontologia", description: "Tire suas dúvidas sobre atendimento, horários, convênios, urgência e avaliação na Ponte São João Odontologia.", eyebrow: "Antes de agendar", heading: "As respostas para começar com mais segurança.", intro: "Se ainda não encontrar o que procura, fale com a equipe pelo WhatsApp. A conversa começa do seu jeito.", image: "/assets/clinica-34.jpg", note: "Atendimento particular em Jundiaí", cta: "Tirar dúvidas" }
 };
 
-function escapeHtml(value = "") {
-  return value.replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]);
-}
+const treatments = [
+  ["Implantes dentários", "Reposição de dentes ausentes e reabilitação do sorriso.", "/implantes-proteses-cirurgias", "/assets/implantes.jpg"],
+  ["Próteses dentárias", "Próteses fixas, removíveis e sobre implante, com foco em adaptação e mastigação.", "/implantes-proteses-cirurgias", "/assets/reabilitacao.jpg"],
+  ["Cirurgias", "Cirurgia bucomaxilofacial, implantodontia e enxerto ósseo conforme avaliação.", "/implantes-proteses-cirurgias", "/assets/cirurgia.webp"],
+  ["Clínica geral", "Avaliação, prevenção, limpeza, restaurações, diagnóstico e encaminhamento.", "/clinica-geral", "/assets/clinica-36.jpg"],
+  ["Urgência odontológica", "Orientação para dor, trauma, dente quebrado, sangramento e intercorrências.", "/urgencia-odontologica", "/assets/cirurgia.webp"],
+  ["Estética e ortodontia", "Clareamento, facetas, lentes de contato dental, Invisalign e aparelhos.", "/tratamentos", "/assets/clinica-35.jpg"]
+];
+const otherAreas = ["Estética dental", "Ortodontia", "Periodontia", "Endodontia", "Odontogeriatria", "Estomatologia", "Reabilitação oral", "Tratamento de ATM", "Sedação consciente", "Protocolo Branemark", "Odontologia hospitalar", "Pacientes especiais"];
+const neighborhoods = ["Centro", "Colônia", "Vila Nambi", "Pacaembu", "Ponte São João", "São Camilo", "Jardim Tamoio", "Caxambu", "Cerâmica", "Ibetel", "Horto Florestal", "Jundiaí Mirim", "Parque Centenário", "Vila Rio Branco", "Jardim Alvorada", "Anhangabaú", "Vila Hortolândia", "Malota", "Parque do Colégio", "Retiro", "Agapeama", "Jardim do Lago", "Vila Maringá", "Vila Rami", "Vila Arens", "Vila Progresso", "Jardim Aeroporto", "Engordadouro", "Eloy Chaves", "Jardim Ermida", "Fazenda Grande", "Medeiros", "Novo Horizonte", "Tulipas", "Chácara Urbana", "Jardim Messina", "Jardim Morumbi", "Vila Didi", "Vila Guilherme", "Vila Liberdade", "Vila Pires"];
+const team = [
+  ["Dr. Marco Aurélio Wood Macan", "Implantes e próteses sobre implante", "CRO-SP 99054", "/assets/dr-marco.jpg", "Especialista em Dentística, Implantodontia e Prótese sobre Implante. Graduação pela PUC-Campinas, especialização em Dentística pela Universidade Leopoldo Mandic e pós-graduação em Implantodontia e Prótese sobre Implante pela APCD."],
+  ["Dra. Regina de Almeida Fernandes", "Próteses dentárias · responsável técnica", "CRO-SP 57949", "/assets/dra-regina.png", "Graduada pela UMC, especialista em Prótese Dentária pela Universidade de São Paulo e pós-graduada em Odontologia para Pacientes Especiais pela Universidad de Barcelona. Professora assistente."],
+  ["Dr. Antônio Carlos de Mello", "Cirurgia bucomaxilofacial", "CRO-SP 45686", "/assets/dr-antonio.jpg", "Cirurgia e Traumatologia Bucomaxilofaciais e Implantodontia. Formação em cirurgia bucomaxilofacial pelo Ceddar e em Implantodontia pela APCD de Piracicaba."],
+  ["Dra. Sara Aparecida de Souza", "Ortodontia", "CRO-SP 42710", "/assets/dra-sara.png", "Especialista em Ortodontia, com formação pela Unifal e Funorte e pós-graduação em Alfenas–MG."]
+];
+const faq = [
+  ["Como faço para conversar com a clínica?", `Chame a equipe no WhatsApp pelo número ${phone}. Conte o que precisa e pergunte como agendar uma avaliação.`],
+  ["A clínica atende convênios ou planos?", "Não. O atendimento é particular e a clínica não atende convênios nem planos de saúde."],
+  ["Quais são os horários de atendimento?", "De segunda a sexta-feira, das 8h às 18h, e aos sábados, das 8h às 13h. Para confirmar disponibilidade, fale com a equipe."],
+  ["Há atendimento para urgências odontológicas?", "Sim. A clínica informa atendimento odontológico de urgência 24 horas, mediante agendamento prévio. Fale com a equipe para confirmar disponibilidade e agendar."],
+  ["Como saber qual tratamento é indicado?", "A indicação depende de avaliação individual. A equipe pode ouvir sua necessidade, explicar possibilidades e orientar o próximo passo."]
+];
 
-function whatsappUrl(pageKey, label) {
-  const messages = {
-    home: "Olá! Gostaria de conhecer a Ponte São João Odontologia e agendar um atendimento.",
-    general: "Olá! Gostaria de agendar uma avaliação de clínica geral na Ponte São João.",
-    emergency: "Olá! Estou com uma urgência odontológica e gostaria de orientação sobre atendimento."
-  };
-  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messages[pageKey] || messages.home)}&utm_source=site&utm_medium=whatsapp&utm_campaign=${pageKey}`;
-}
-
-function icon(name) {
-  const icons = {
-    arrow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>',
-    check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>',
-    pin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.2"/></svg>',
-    phone: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8 9 3l2 5-2 1.5a13.4 13.4 0 0 0 5.5 5.5L16 13l5 2-0.8 2.4a2.5 2.5 0 0 1-2.8 1.6C10 18 6 14 4.9 6.6a2.5 2.5 0 0 1 1.7-2.8Z"/></svg>',
-    clock: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>'
-  };
-  return icons[name] || "";
-}
-
-function logo() {
-  return `<a class="brand" href="/" aria-label="Ponte São João Odontologia — início"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span class="brand-name"><strong>Ponte São João</strong><small>odontologia</small></span></a>`;
-}
-
-function header(pageKey) {
-  const active = (key) => pageKey === key ? " aria-current=\"page\"" : "";
-  return `<header class="site-header"><div class="topline"><div class="shell topbar"><span>Atendimento particular em Jundiaí</span><a href="tel:+5511963181163">${phoneDisplay}</a></div></div><div class="shell nav-wrap">${logo()}<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu <span>☰</span></button><nav id="main-nav" class="main-nav" aria-label="Navegação principal"><a href="/"${active("home")}>Início</a><a href="/clinica-geral"${active("general")}>Clínica Geral</a><a href="/urgencia-odontologica"${active("emergency")}>Urgência</a><a class="nav-cta" href="${whatsappUrl(pageKey, "nav")}" target="_blank" rel="noopener">Falar no WhatsApp ${icon("arrow")}</a></nav></div></header>`;
-}
-
-function hero(page) {
-  const visualText = {
-    home: ["Cuidado que acolhe", "Tecnologia que apoia", "Experiência que orienta"],
-    general: ["Prevenção", "Diagnóstico", "Acompanhamento"],
-    emergency: ["Dor", "Trauma", "Orientação"]
-  }[page.heroVisual];
-  return `<section class="hero hero-${page.heroVisual}"><div class="shell hero-grid"><div class="hero-copy"><p class="eyebrow">${escapeHtml(page.eyebrow)}</p><h1>${escapeHtml(page.heading)}</h1><p class="hero-intro">${escapeHtml(page.intro)}</p><div class="hero-actions"><a class="button button-primary" href="${whatsappUrl(page.key, "hero")}" target="_blank" rel="noopener">${escapeHtml(page.primaryCta)} ${icon("arrow")}</a><a class="button button-text" href="#conteudo">Ver como podemos ajudar ${icon("arrow")}</a></div><p class="hero-note">${icon(page.key === "emergency" ? "clock" : "check")}${escapeHtml(page.heroNote)}</p></div><div class="hero-art" aria-label="${escapeHtml(page.eyebrow)}"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="art-card art-card-main"><span class="art-label">Ponte São João</span><strong>${escapeHtml(visualText[0])}</strong><span class="art-line"></span><span class="art-caption">${escapeHtml(visualText[1])}</span></div><div class="art-card art-card-float"><span class="float-kicker">Hoje, o próximo passo é</span><strong>${escapeHtml(visualText[2])}</strong><span class="float-dot"></span></div><div class="art-cross" aria-hidden="true">+</div></div></div></section>`;
-}
-
-function sectionMarkup(section, pageKey) {
-  let body = `<div class="section-heading"><p class="eyebrow">${escapeHtml(section.kicker)}</p><h2>${escapeHtml(section.heading)}</h2><p>${escapeHtml(section.body)}</p></div>`;
-  if (section.cards) {
-    body += `<div class="feature-list">${section.cards.map(([number, title, text]) => `<article class="feature-item"><span class="feature-number">${number}</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join("")}</div>`;
-  }
-  if (section.serviceLinks) {
-    body += `<div class="service-grid">${section.serviceLinks.map(([title, text, href, cta]) => `<a class="service-card" href="${href}"><span class="service-icon">↗</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p><span class="card-link">${escapeHtml(cta)} ${icon("arrow")}</span></a>`).join("")}</div>`;
-  }
-  if (section.checkList) {
-    body += `<ul class="check-list">${section.checkList.map((item) => `<li>${icon("check")}<span>${escapeHtml(item)}</span></li>`).join("")}</ul>`;
-  }
-  if (section.urgencyCards) {
-    body += `<div class="urgency-grid">${section.urgencyCards.map(([title, text]) => `<article class="urgency-card"><span class="urgency-mark">+</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join("")}</div>`;
-  }
-  if (section.callout) {
-    body += `<div class="callout"><span class="callout-mark">↗</span><p>${escapeHtml(section.callout)}</p><a href="${whatsappUrl(pageKey, "callout")}" target="_blank" rel="noopener">Conversar com a clínica ${icon("arrow")}</a></div>`;
-  }
-  const layout = section.cards || section.serviceLinks || section.checkList || section.urgencyCards ? " content-section split-section" : " content-section narrow-section";
-  return `<section id="${section.id}" class="${layout}"><div class="shell section-grid">${body}</div></section>`;
-}
-
-function locationSection(pageKey) {
-  return `<section id="localizacao" class="location-section"><div class="shell location-grid"><div class="location-copy"><p class="eyebrow">Onde estamos</p><h2>Um ponto de cuidado na Ponte São João.</h2><p>Estamos em uma localização de fácil acesso em Jundiaí, com atendimento particular e uma equipe pronta para receber você.</p><div class="address-line">${icon("pin")}<div><strong>${address}</strong><span>CEP 13216-000</span></div></div><a class="button button-light" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("Av. São João, 627, Ponte São João, Jundiaí - SP")}" target="_blank" rel="noopener">Abrir rota no Google Maps ${icon("arrow")}</a></div><div class="map-frame"><iframe title="Mapa da Ponte São João Odontologia" src="https://www.google.com/maps?q=${encodeURIComponent("Av. São João, 627, Ponte São João, Jundiaí - SP")}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></section>`;
-}
-
-function footer(pageKey) {
-  return `<footer class="site-footer"><div class="shell footer-grid"><div>${logo()}<p>Reconstruir sorrisos com recursos modernos, atendimento especializado e cuidado humanizado.</p></div><div><p class="footer-label">Atendimento</p><a href="${whatsappUrl(pageKey, "footer")}" target="_blank" rel="noopener">WhatsApp ${phoneDisplay}</a><a href="tel:+5511963181163">Ligar para a clínica</a></div><div><p class="footer-label">Navegue</p><a href="/clinica-geral">Clínica Geral</a><a href="/urgencia-odontologica">Urgência Odontológica</a><a href="/#localizacao">Como chegar</a></div></div><div class="shell footer-bottom"><span>© ${new Date().getFullYear()} Ponte São João Odontologia</span><span>Dra. Regina de Almeida Fernandes · CRO-SP 57949</span></div></footer>`;
-}
-
-function pageHtml(page, path) {
-  const canonical = `${siteOrigin}${path === "/" ? "/" : path}`;
-  const isEmergency = page.key === "emergency";
-  const robots = path === "/404" ? "noindex, nofollow" : "index, follow";
-  return `<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${escapeHtml(page.title)}</title><meta name="description" content="${escapeHtml(page.description)}"><meta name="keywords" content="dentista em Jundiaí, clínica odontológica Jundiaí, clínica geral odontológica, urgência odontológica Jundiaí"><meta name="robots" content="${robots}"><meta name="theme-color" content="#f2eee7"><link rel="canonical" href="${canonical}"><meta property="og:type" content="website"><meta property="og:site_name" content="Ponte São João Odontologia"><meta property="og:title" content="${escapeHtml(page.title)}"><meta property="og:description" content="${escapeHtml(page.description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${siteOrigin}/social-card.svg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escapeHtml(page.title)}"><meta name="twitter:description" content="${escapeHtml(page.description)}"><meta name="twitter:image" content="${siteOrigin}/social-card.svg"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/a11y.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"></head><body class="page-${page.key}"><a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>${header(page.key)}<main id="conteudo">${hero(page)}<div>${page.sections.map((section) => sectionMarkup(section, page.key)).join("")}</div>${locationSection(page.key)}<section class="final-cta"><div class="shell final-cta-inner"><div><p class="eyebrow">Vamos conversar?</p><h2>${isEmergency ? "Explique o que aconteceu. A gente orienta você." : "Seu cuidado pode começar com uma conversa."}</h2></div><a class="button button-primary" href="${whatsappUrl(page.key, "final")}" target="_blank" rel="noopener">Falar no WhatsApp ${icon("arrow")}</a></div></section></main>${footer(page.key)}<a class="floating-whatsapp" href="${whatsappUrl(page.key, "floating")}" target="_blank" rel="noopener" aria-label="Falar com a Ponte São João pelo WhatsApp"><span>WhatsApp</span><strong>↗</strong></a><script src="/script.js" defer></script></body></html>`;
-}
-
-function contentType(path) {
-  return { ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".svg": "image/svg+xml", ".json": "application/json; charset=utf-8", ".xml": "application/xml; charset=utf-8", ".txt": "text/plain; charset=utf-8" }[extname(path)] || "application/octet-stream";
-}
-
-async function serveStatic(res, pathname) {
-  const clean = normalize(pathname).replace(/^\.\.(\/|\\)/, "");
-  const filePath = join(publicDir, clean);
-  if (!filePath.startsWith(publicDir)) return false;
-  try {
-    const data = await readFile(filePath);
-    res.writeHead(200, { "Content-Type": contentType(filePath), "Cache-Control": pathname.endsWith(".html") ? "no-cache" : "public, max-age=3600" });
-    res.end(data);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-const server = http.createServer(async (req, res) => {
-  const url = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
-  const pathname = url.pathname.replace(/\/$/, "") || "/";
-  if (pathname === "/sitemap.xml") {
-    const xml = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${Object.keys(pages).map((path) => `<url><loc>${siteOrigin}${path === "/" ? "/" : path}</loc></url>`).join("")}</urlset>`;
-    res.writeHead(200, { "Content-Type": "application/xml; charset=utf-8", "Cache-Control": "no-cache" });
-    res.end(xml);
-    return;
-  }
-  if (pathname === "/robots.txt") {
-    res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-cache" });
-    res.end(`User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${siteOrigin}/sitemap.xml\n`);
-    return;
-  }
-  if (pages[pathname]) {
-    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-cache" });
-    res.end(pageHtml(pages[pathname], pathname));
-    return;
-  }
-  if (await serveStatic(res, pathname)) return;
-  res.writeHead(404, { "Content-Type": "text/html; charset=utf-8", "X-Robots-Tag": "noindex" });
-  res.end(pageHtml({ ...pages["/"], title: "Página não encontrada | Ponte São João Odontologia", description: "A página que você procura não foi encontrada." }, "/404"));
-});
-
-server.listen(port, "0.0.0.0", () => {
-  console.log(`Ponte São João Odontologia listening on http://0.0.0.0:${port}`);
-});
+function escape(value = "") { return String(value).replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c])); }
+function wa(key = "home") { const msg = { home:"Olá! Vim pelo site da Ponte São João e gostaria de agendar uma avaliação.", rehab:"Olá! Vim pelo site e gostaria de conversar sobre implantes, próteses ou cirurgias.", general:"Olá! Vim pelo site e gostaria de agendar uma avaliação de clínica geral.", emergency:"Olá! Estou com uma urgência odontológica e gostaria de orientação sobre atendimento.", treatments:"Olá! Gostaria de saber mais sobre os tratamentos da Ponte São João.", team:"Olá! Gostaria de agendar uma avaliação na Ponte São João.", faq:"Olá! Tenho uma dúvida sobre o atendimento da Ponte São João." }; return `https://wa.me/${whatsapp}?text=${encodeURIComponent(msg[key] || msg.home)}&utm_source=site&utm_medium=whatsapp&utm_campaign=${key}`; }
+function icon(name) { const i={arrow:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>',check:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>',pin:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.2"/></svg>',clock:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>'}; return i[name] || ''; }
+function logo() { return `<a class="brand" href="/" aria-label="Ponte São João Odontologia — início"><img src="/assets/logo.png" alt="Ponte São João Odontologia Estética"></a>`; }
+function header(page) { const active = p => page.key === p ? ' aria-current="page"' : ''; return `<div class="announcement">Atendimento particular · Não atendemos convênios <a href="tel:+5511963181163">${phone}</a></div><header class="site-header"><div class="shell nav-wrap">${logo()}<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu <span>☰</span></button><nav id="nav" class="main-nav" aria-label="Navegação principal"><a href="/"${active('home')}>Início</a><a href="/implantes-proteses-cirurgias"${active('rehab')}>Implantes e próteses</a><a href="/clinica-geral"${active('general')}>Clínica Geral</a><a href="/urgencia-odontologica"${active('emergency')}>Urgência</a><a href="/tratamentos"${active('treatments')}>Tratamentos</a><a class="nav-button" href="${wa(page.key)}" target="_blank" rel="noopener">Agendar avaliação ${icon('arrow')}</a></nav></div></header>`; }
+function hero(page) { return `<section class="hero"><div class="shell hero-grid"><div class="hero-copy"><p class="eyebrow">${escape(page.eyebrow)}</p><h1>${escape(page.heading)}</h1><p class="hero-intro">${escape(page.intro)}</p><div class="hero-actions"><a class="button button-primary" href="${wa(page.key)}" target="_blank" rel="noopener">${escape(page.cta)} ${icon('arrow')}</a><a class="button button-text" href="#conteudo">Conheça os tratamentos ${icon('arrow')}</a></div><p class="hero-note">${icon(page.key === 'emergency' ? 'clock' : 'check')}${escape(page.note)}</p></div><div class="hero-photo"><img src="${page.image}" alt="Ambiente e atendimento da Ponte São João Odontologia"><span class="photo-tag">Ponte São João<br><small>Jundiaí</small></span></div></div></section>`; }
+function introBlock(kicker, heading, body, extra = '') { return `<div class="section-heading"><p class="eyebrow">${escape(kicker)}</p><h2>${escape(heading)}</h2><p>${escape(body)}</p>${extra}</div>`; }
+function imageCards() { return `<div class="treatment-grid">${treatments.map(([title,text,href,img], idx) => `<a class="treatment-card" href="${href}"><div class="treatment-image"><img src="${img}" alt="${escape(title)} na Ponte São João"><span>0${idx+1} / 06</span></div><div class="treatment-body"><p class="card-kicker">${idx < 3 ? 'Reabilitação oral' : 'Cuidado completo'}</p><h3>${escape(title)}</h3><p>${escape(text)}</p><span class="card-link">Conhecer ${icon('arrow')}</span></div></a>`).join('')}</div>`; }
+function rehabContent() { return `<section class="content-section"><div class="shell split-grid">${introBlock('Cuidado com avaliação individual','Cada sorriso tem uma história. Qual é a sua?','Uma mudança na mastigação ou uma prótese que não se adapta pode trazer dúvidas. A equipe pode ouvir o que você está sentindo e orientar uma avaliação para entender as alternativas possíveis.')}<div class="story-list"><p>Falta um ou mais dentes?</p><p>Sua prótese machuca ou está difícil de adaptar?</p><p>Quer saber se existe uma opção para o seu caso?</p><a class="button button-primary" href="${wa('rehab')}" target="_blank" rel="noopener">Conversar sobre meu caso ${icon('arrow')}</a></div></div></section><section class="content-section alt"><div class="shell"><div class="section-heading centered">${introBlock('Três caminhos para começar a conversa','Implantes, próteses e cirurgias em Jundiaí.','As possibilidades dependem da avaliação clínica e das necessidades de cada pessoa. Fale com a equipe para entender o próximo passo.')}</div>${imageCards()}</div></section><section class="content-section"><div class="shell process-grid">${introBlock('Sem complicar o primeiro passo','A conversa começa do seu jeito.','Você não precisa chegar com todas as respostas. A equipe pode ouvir suas dúvidas e explicar como agendar uma avaliação.')}<div class="steps"><div><b>01</b><h3>Chame a equipe</h3><p>Fale pelo WhatsApp ou telefone.</p></div><div><b>02</b><h3>Conte o que você precisa</h3><p>Compartilhe sua dúvida ou necessidade.</p></div><div><b>03</b><h3>Agende a avaliação</h3><p>Combine com a equipe o melhor horário.</p></div></div></div></section>`; }
+function generalContent() { return `<section class="content-section"><div class="shell split-grid">${introBlock('Um ponto de partida seguro','Um atendimento pensado para entender o que você precisa.','A consulta de clínica geral olha para a saúde da boca como um todo. A partir da avaliação, a equipe explica os achados e orienta os próximos passos, incluindo encaminhamentos quando necessário.')}<ul class="check-list"><li>${icon('check')}Avaliação clínica e conversa sobre sua saúde bucal</li><li>${icon('check')}Orientação de prevenção e higiene personalizada</li><li>${icon('check')}Limpeza quando indicada</li><li>${icon('check')}Avaliação de cáries, restaurações e sensibilidade</li><li>${icon('check')}Planejamento ou encaminhamento especializado</li></ul></div></section><section class="content-section alt"><div class="shell"><div class="section-heading centered">${introBlock('Para diferentes momentos','Quando marcar uma avaliação?','Mesmo sem dor, consultas de acompanhamento ajudam a identificar alterações cedo. Também é um bom caminho para quem percebe sensibilidade, sangramento ao escovar, manchas, mau hálito persistente ou quer retomar o cuidado.')}</div>${imageCards()}</div></section>`; }
+function emergencyContent() { const cards = [['Dor de dente','Dor intensa, latejante ou que piorou de repente.'],['Dente quebrado','Fratura, perda de parte do dente ou restauração que caiu.'],['Trauma','Batida na boca, queda ou impacto durante esporte.'],['Sangramento','Sangramento persistente após um trauma ou procedimento.'],['Inchaço','Edema, sensibilidade ou dificuldade para abrir a boca.'],['Outras intercorrências','Algo mudou e você não sabe se deve esperar? Converse com a equipe.']]; return `<section class="content-section"><div class="shell"><div class="section-heading centered">${introBlock('Podemos orientar você','Algumas situações que pedem contato rápido.','Cada caso precisa ser avaliado individualmente. Ao chamar no WhatsApp, descreva os sintomas, quando começaram e se houve trauma.')}</div><div class="urgency-grid">${cards.map(([a,b]) => `<article class="urgency-card"><span>+</span><h3>${a}</h3><p>${b}</p></article>`).join('')}</div></div></section><section class="content-section alt"><div class="shell split-grid">${introBlock('Antes de chegar','O que fazer enquanto busca orientação.','Mantenha a calma e evite improvisar medicamentos ou colocar substâncias diretamente no local. Em caso de trauma, não descarte fragmentos ou o dente sem antes receber orientação. Se houver dificuldade para respirar, perda de consciência ou sangramento que não cessa, procure um serviço de emergência médica imediatamente.')}<div class="notice"><strong>Importante</strong><p>A Ponte São João atende de forma particular. Envie uma mensagem antes de se deslocar para confirmar horários e disponibilidade.</p><a href="${wa('emergency')}" target="_blank" rel="noopener">Falar com a equipe ${icon('arrow')}</a></div></div></section>`; }
+function treatmentsContent() { return `<section class="content-section alt"><div class="shell"><div class="section-heading centered">${introBlock('Áreas informadas pela clínica','Um só lugar para diferentes necessidades.','A disponibilidade de cada atendimento deve ser confirmada diretamente com a equipe.')}</div>${imageCards()}<div class="pill-list">${otherAreas.map(a => `<span>${escape(a)}</span>`).join('')}</div></div></section>`; }
+function teamContent() { return `<section class="content-section alt"><div class="shell"><div class="section-heading centered">${introBlock('Conheça a equipe','Profissionais com experiências complementares.','A Ponte São João reúne profissionais de diferentes áreas para acompanhar cada pessoa de acordo com sua necessidade.')}</div><div class="team-grid">${team.map(([name,area,cro,img,bio]) => `<article class="team-card"><img src="${img}" alt="Retrato de ${escape(name)}"><div><p class="card-kicker">${escape(area)}</p><h3>${escape(name)}</h3><strong>${escape(cro)}</strong><p>${escape(bio)}</p></div></article>`).join('')}</div><p class="legal-note">Responsável técnica: Dra. Regina de Almeida Fernandes · CRO-SP 57949. Clínica CRO-SP 026257.</p></div></section>`; }
+function faqContent() { return `<section class="content-section alt"><div class="shell faq-wrap">${faq.map(([q,a]) => `<details><summary>${escape(q)} <span>+</span></summary><p>${escape(a)}</p></details>`).join('')}<a class="button button-primary" href="${wa('faq')}" target="_blank" rel="noopener">Falar com a equipe ${icon('arrow')}</a></div></section>`; }
+function location() { return `<section id="localizacao" class="location"><div class="shell location-grid"><div><p class="eyebrow">Ponte São João · Jundiaí</p><h2>Um atendimento atento, perto de você.</h2><p>${escape(address)}<br>CEP 13216-000</p><p><strong>Horários</strong><br>Segunda a sexta · 8h–18h<br>Sábado · 8h–13h</p><a class="button button-light" href="${mapsUrl}" target="_blank" rel="noopener">Como chegar no Google Maps ${icon('arrow')}</a></div><div class="map"><iframe title="Mapa da Ponte São João Odontologia" src="https://www.google.com/maps?q=${encodeURIComponent('Av. São João, 627, Ponte São João, Jundiaí - SP')}&output=embed" loading="lazy"></iframe></div></div><div class="shell location-extra"><div><p class="eyebrow">Atendimento em Jundiaí</p><h3>Pacientes de diferentes bairros encontram a Ponte São João.</h3><p>${neighborhoods.map(n => escape(n)).join(" · ")}</p></div><div class="review-badge"><strong>★★★★★</strong><b>4,9/5 no Google</b><span>144 avaliações públicas</span><a href="${mapsUrl}" target="_blank" rel="noopener">Conferir no Google ${icon('arrow')}</a></div></div></section>`; }
+function footer(page) { return `<section class="final-cta"><div class="shell final-cta-inner"><div><p class="eyebrow">Seu próximo passo</p><h2>Vamos conversar sobre o que você precisa?</h2></div><a class="button button-primary" href="${wa(page.key)}" target="_blank" rel="noopener">Agendar avaliação ${icon('arrow')}</a></div></section><footer><div class="shell footer-grid"><div>${logo()}<p>Atendimento odontológico em Jundiaí, com orientação profissional e atenção às necessidades de cada paciente.</p><span>Atendimento particular · Não atendemos convênios.</span></div><div><b>Navegue</b><a href="/implantes-proteses-cirurgias">Implantes, próteses e cirurgias</a><a href="/clinica-geral">Clínica Geral</a><a href="/urgencia-odontologica">Urgência</a><a href="/tratamentos">Tratamentos</a><a href="/profissionais">Profissionais</a><a href="/duvidas">Dúvidas frequentes</a></div><div><b>Contato</b><a href="tel:+5511963181163">${phone}</a><a href="${wa(page.key)}" target="_blank" rel="noopener">WhatsApp</a><a href="${mapsUrl}" target="_blank" rel="noopener">Google Maps</a><a href="https://www.instagram.com/ponteodontoestetica/" target="_blank" rel="noopener">Instagram</a></div></div><div class="shell footer-bottom"><span>© ${new Date().getFullYear()} Ponte São João Odontologia Estética</span><span>Dra. Regina de Almeida Fernandes · CRO-SP 57949</span></div></footer>`; }
+function content(page) { if(page.key==='rehab') return rehabContent(); if(page.key==='general') return generalContent(); if(page.key==='emergency') return emergencyContent(); if(page.key==='treatments') return treatmentsContent(); if(page.key==='team') return teamContent(); if(page.key==='faq') return faqContent(); return `<section class="content-section alt"><div class="shell review-strip"><div><strong>★★★★★</strong><b>4,9/5 no Google</b><span>144 avaliações</span></div><p>Uma clínica, diferentes áreas — perto de você em Jundiaí.</p><a href="${mapsUrl}" target="_blank" rel="noopener">Ver avaliações ${icon('arrow')}</a></div></section><section class="content-section alt"><div class="shell split-grid">${introBlock('Odontologia completa','Uma clínica, diferentes áreas.','Na Ponte São João, a proposta é ouvir as necessidades de cada paciente e conversar sobre possibilidades de cuidado com orientação profissional. Implantes, próteses, cirurgias, clínica geral e outras especialidades são apresentados conforme a necessidade de cada pessoa.')}<div class="feature-list"><article><b>01</b><h3>Escuta individual</h3><p>Seu caso merece atenção própria.</p></article><article><b>02</b><h3>Diferentes especialidades</h3><p>Profissionais em um só lugar.</p></article><article><b>03</b><h3>Perto de você</h3><p>No bairro Ponte São João.</p></article></div></div></section><section class="content-section"><div class="shell"><div class="section-heading centered">${introBlock('Cuidado completo','Escolha por onde começar.','Conheça as principais frentes de atendimento e converse com a equipe para tirar dúvidas e agendar uma avaliação.')}</div>${imageCards()}</div></section><section class="content-section alt"><div class="shell split-grid"><img class="editorial-image" src="/assets/clinica-34.jpg" alt="Ambiente da Ponte São João Odontologia"><div>${introBlock('Sobre a Ponte São João','Tecnologia e atendimento humanizado.','A clínica oferece uma ampla variedade de serviços para atender necessidades individuais, desde prevenção e procedimentos simples até reabilitação oral e cirurgias complexas. Cada tratamento começa com avaliação e conversa clara sobre as possibilidades.')}</div></div></section>`; }
+function html(page,path) { const canonical = `${siteOrigin}${path === '/' ? '/' : path}`; const robots = path === '/404' ? 'noindex, nofollow' : 'index, follow'; return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><meta name="keywords" content="dentista Jundiaí, implantes dentários Jundiaí, próteses dentárias, cirurgia bucomaxilofacial, clínica geral, urgência odontológica"><meta name="robots" content="${robots}"><link rel="canonical" href="${canonical}"><meta property="og:type" content="website"><meta property="og:site_name" content="Ponte São João Odontologia Estética"><meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${siteOrigin}/assets/clinica-36.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(page.title)}"><meta name="twitter:description" content="${escape(page.description)}"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/site-extra.css"><link rel="stylesheet" href="/a11y.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"></head><body><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>${header(page)}<main id="conteudo">${hero(page)}${content(page)}${location()}</main>${footer(page)}<a class="floating" href="${wa(page.key)}" target="_blank" rel="noopener" aria-label="Falar com a equipe pelo WhatsApp">WhatsApp <strong>↗</strong></a><script src="/script.js" defer></script></body></html>`; }
+function type(path) { return {'.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp','.json':'application/json; charset=utf-8','.xml':'application/xml; charset=utf-8','.txt':'text/plain; charset=utf-8'}[extname(path)] || 'application/octet-stream'; }
+async function staticFile(res, pathname) { const clean = normalize(pathname).replace(/^\.\.(\/|\\)/,''); const file = join(publicDir,clean); if(!file.startsWith(publicDir)) return false; try { const data=await readFile(file); res.writeHead(200,{'Content-Type':type(file),'Cache-Control':'public, max-age=3600'}); res.end(data); return true; } catch { return false; } }
+const server=http.createServer(async(req,res)=>{ const url=new URL(req.url||'/',`http://${req.headers.host||'localhost'}`); const path=url.pathname.replace(/\/$/,'')||'/'; if(path==='/sitemap.xml'){ const xml=`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${Object.keys(pages).map(p=>`<url><loc>${siteOrigin}${p==='/'?'/':p}</loc></url>`).join('')}</urlset>`; res.writeHead(200,{'Content-Type':'application/xml; charset=utf-8'}); res.end(xml); return; } if(path==='/robots.txt'){res.writeHead(200,{'Content-Type':'text/plain; charset=utf-8'});res.end(`User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${siteOrigin}/sitemap.xml\n`);return;} if(pages[path]){res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-cache'});res.end(html(pages[path],path));return;} if(await staticFile(res,path)) return; res.writeHead(404,{'Content-Type':'text/html; charset=utf-8','X-Robots-Tag':'noindex'});res.end(html({...pages['/'],key:'404',title:'Página não encontrada | Ponte São João',description:'A página que você procura não foi encontrada.'},'/404')); });
+server.listen(port,'0.0.0.0',()=>console.log(`Ponte São João site listening on ${port}`));

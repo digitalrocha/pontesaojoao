@@ -1,3 +1,3 @@
 export default {
-  logoUrl: "https://www.pontesaojoaoodontologia.com.br/favicon.svg",
+  logoUrl: "https://www.pontesaojoaoimplantes.com.br/assets/logo.png",
 };
