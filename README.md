@@ -8,12 +8,13 @@ Site único da clínica, reconstruído a partir das duas referências públicas 
 - `/implantes-proteses-cirurgias` — landing para reabilitação oral, implantes, próteses e cirurgias
 - `/clinica-geral` — landing para avaliação e prevenção
 - `/urgencia-odontologica` — landing para intercorrências e urgência
+- `/cirurgias` — landing própria para cirurgia bucomaxilofacial, implantodontia, enxerto ósseo e cirurgia/trauma
 - `/tratamentos` — mapa de áreas e serviços
 - `/profissionais` — equipe e formações publicadas
 - `/duvidas` — perguntas frequentes
 - `/sitemap.xml`, `/robots.txt` e `/manus-routes.json` — SEO e rastreamento
 
-O site usa imagens públicas da landing page de referência para preservar sua identidade visual editorial e premium. Todos os CTAs levam ao WhatsApp oficial da clínica com mensagens específicas por intenção.
+O site usa imagens públicas da landing page de referência para preservar sua identidade visual editorial e premium. Todas as abas abrem páginas próprias, cada uma com mensagem de WhatsApp, CTA, título, descrição e conteúdo adequados à intenção do anúncio. O botão flutuante segue o padrão visual da referência: círculo verde, ícone branco, pulso e tooltip para contato.
 
 ## Desenvolvimento
 

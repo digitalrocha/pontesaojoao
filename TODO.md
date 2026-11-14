@@ -9,6 +9,7 @@
   - `/implantes-proteses-cirurgias` para implantes, próteses, cirurgias, enxerto ósseo e reabilitação oral.
   - `/clinica-geral` para avaliação, prevenção, limpeza, restaurações, diagnóstico e encaminhamento.
   - `/urgencia-odontologica` para dor, trauma, dente quebrado, sangramento e outras intercorrências.
+  - `/cirurgias` para cirurgia bucomaxilofacial, implantodontia, enxerto ósseo e cirurgia/trauma, separada da urgência.
   - `/tratamentos`, `/profissionais` e `/duvidas` como páginas de apoio e navegação.
 
 - [x] **Conteúdo completo das referências**
@@ -17,6 +18,8 @@
 
 - [x] **Conversão e localização**
   - CTAs por intenção com mensagens de WhatsApp específicas para home, implantes, clínica geral, urgência, tratamentos, equipe e dúvidas.
+  - Cada aba abre uma página própria, com headline, prova, benefícios, orientação e CTA voltados à conversão do anúncio correspondente.
+  - Botão flutuante do WhatsApp no padrão da referência: círculo verde, ícone, pulso, tooltip e acessibilidade.
   - Mapa, rota, telefone, horários e botão flutuante de WhatsApp em todo o site.
 
 - [x] **SEO, acessibilidade e deploy**
